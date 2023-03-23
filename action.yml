@@ -1,0 +1,23 @@
+name: "Cloud One Container Security Scan Action"
+description: "Scan container images with Trend Micro Cloud One Container Security"
+inputs:
+  CLOUD_ONE_API_KEY:
+    description: "Cloud One API Key"
+    required: true
+  IMAGE:
+    description: "Image to scan"
+    required: true
+  REGION:
+    description: "Cloud One Region"
+    required: true
+    default: "us-1"
+branding:
+  icon: "package"
+  color: "red"
+runs:
+  using: "docker"
+  image: "docker:ghcr.io/felipecosta09/c1cs:latest"
+  env:
+    CLOUD_ONE_API_KEY: ${{ inputs.CLOUD_ONE_API_KEY }}
+    IMAGE: ${{ inputs.IMAGE }}
+    REGION: ${{ inputs.REGION }}
