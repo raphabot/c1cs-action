@@ -11,6 +11,34 @@ inputs:
     description: "Cloud One Region"
     required: true
     default: "us-1"
+  TOTAL:
+    description: "Total of vulnerabilities in a images"
+    required: false
+    default: "0"
+  MAX_CRITICAL:
+    description: "Max critical vulnerabilities in a images"
+    required: false
+    default: "0"
+  MAX_HIGH:
+    description: "Max high vulnerabilities in a images"
+    required: false
+    default: "0"
+  MAX_MEDIUM:
+    description: "Max medium vulnerabilities in a images"
+    required: false
+    default: "0"
+  MAX_LOW:
+    description: "Max low vulnerabilities in a images"
+    required: false
+    default: "0"
+  MAX_NEGLIGIBLE:
+    description: "Max negligible vulnerabilities in a images"
+    required: false
+    default: "0"
+  MAX_UNKNOWN:
+    description: "Max unknown vulnerabilities in a images"
+    required: false
+    default: "0"
 branding:
   icon: "package"
   color: "red"
