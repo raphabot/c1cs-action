@@ -1,6 +1,6 @@
 # Trend Micro Cloud One Container Security
 
-![TM Logo](tm-logo.png)
+![TM Logo](tm-logo.jpg)
 
 ## Scan your containers with [Trend Micro Cloud One Container Security](https://www.trendmicro.com/en_us/business/products/hybrid-cloud/cloud-one-container-image-security.html)
 
