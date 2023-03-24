@@ -26,7 +26,7 @@ if [ "$TOTAL_LOW" -gt "$MAX_LOW" ]; then MESSAGE+="Your total of Low vulnerabili
 TOTAL_NEGLIGIBLE="$(jq '.negligibleCount' "$SCAN_RESULT_ARTIFACT")"
 if [ "$TOTAL_NEGLIGIBLE" -gt "$MAX_NEGLIGIBLE" ]; then MESSAGE+="Your total of Negligible vulnerabilities is $TOTAL_NEGLIGIBLE, which is higher than $MAX_NEGLIGIBLE\n"; fi
 TOTAL_UNKNOWN="$(jq '.unknownCount' "$SCAN_RESULT_ARTIFACT")"
-if [ "$TOTAL_UNKNOWN" -gt "$MAX_UNKNOWN" ]; then MESSAGE+="Your total of Unknown vulnerabilities is $TOTAL_UNKNOWN, which is higher than $MAX_UNKNOWN\n"; fi
+if [ "$TOTAL_UNKNOWN" -gt "$MAX_UNKNOWN" ]; then MESSAGE+="Your total of Unknown vulnerabilities is $TOTAL_UNKNOWN, which is higher than $MAX_UNKNOWN"; fi
 
 # Issue found
 if [ "$MESSAGE" = "" ]; then printf "$MESSAGE"; exit 1; fi
