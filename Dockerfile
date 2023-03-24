@@ -10,7 +10,7 @@ FROM gcr.io/distroless/static-debian11
 
 COPY --from=build /usr/bin/crane /bin
 COPY --from=build /usr/local/bin/c1cs /bin
-COPY --from=build /bin/bash /bin
+COPY --from=build /bin/bash /bin/bash
 
 COPY pull-scan.sh /app/
 
