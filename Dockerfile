@@ -16,4 +16,4 @@ COPY pull-scan.sh /app/pull-scan.sh
 
 ENV PATH="/bin"
 
-ENTRYPOINT [ "sh", "/app/pull-scan.sh" ]
+CMD [ "/app/pull-scan.sh" ]
