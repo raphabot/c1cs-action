@@ -1,5 +1,5 @@
 name: "Cloud One Container Security Scan Action"
-description: "Scan container images with Trend Micro Cloud One Container Security"
+description: "Scan container images with Trend Cloud One Container Security"
 inputs:
   CLOUD_ONE_API_KEY:
     description: "Cloud One API Key"
@@ -48,7 +48,7 @@ branding:
   color: "red"
 runs:
   using: "docker"
-  image: "docker:ghcr.io/felipecosta09/c1cs:latest"
+  image: "docker://ghcr.io/felipecosta09/c1cs:latest"
   env:
     CLOUD_ONE_API_KEY: ${{ inputs.CLOUD_ONE_API_KEY }}
     IMAGE: ${{ inputs.IMAGE }}
@@ -61,4 +61,3 @@ runs:
     MAX_NEGLIGIBLE: ${{ inputs.MAX_NEGLIGIBLE }}
     MAX_UNKNOWN: ${{ inputs.MAX_UNKNOWN }}
     SCAN_RESULT_ARTIFACT: ${{ inputs.SCAN_RESULT_ARTIFACT }}
-    
