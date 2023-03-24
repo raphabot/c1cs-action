@@ -29,7 +29,7 @@ TOTAL_UNKNOWN="$(jq '.unknownCount' "$SCAN_RESULT_ARTIFACT")"
 if [ "$TOTAL_UNKNOWN" -gt "$MAX_UNKNOWN" ]; then MESSAGE+="Your total of Unknown vulnerabilities is $TOTAL_UNKNOWN, which is higher than $MAX_UNKNOWN"; fi
 
 # Issue found
-if [ "$MESSAGE" = "" ]; then printf "%s" "$MESSAGE"; exit 1; fi
+if [ "$MESSAGE" != "" ]; then printf "%s" "$MESSAGE"; exit 1; fi
 
 # No issues found
 echo "Evaluation found no issues against the provided policy."
