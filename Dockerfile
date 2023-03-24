@@ -1,8 +1,10 @@
 FROM ubuntu:latest
 
-ADD pull-scan.sh /app/pull-scan.sh
+COPY pull-scan.sh /app/
 
 WORKDIR /app
+
+RUN chmod 777 pull-scan.sh && ./pull-scan.sh
 
 RUN apt update -y && apt install bash curl sudo jq -y
 

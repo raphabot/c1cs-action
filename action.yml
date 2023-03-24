@@ -48,7 +48,7 @@ branding:
   color: "red"
 runs:
   using: "docker"
-  image: "docker://ghcr.io/felipecosta09/c1cs:latest"
+  image: "docker://ghcr.io/felipecosta09/c1cs:1"
   env:
     CLOUD_ONE_API_KEY: ${{ inputs.CLOUD_ONE_API_KEY }}
     IMAGE: ${{ inputs.IMAGE }}
