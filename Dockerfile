@@ -8,9 +8,9 @@ RUN OS=Linux && ARCH=x86_64 && VERSION=$(curl -s "https://api.github.com/repos/g
 
 FROM gcr.io/distroless/static-debian11
 
-COPY --from=build /usr/bin/crane /
-COPY --from=build /usr/local/bin/c1cs /
-COPY --from=build /usr/bin/bash /
+COPY --from=build /usr/bin/crane /bin
+COPY --from=build /usr/local/bin/c1cs /bin
+COPY --from=build /bin/bash /bin
 
 COPY pull-scan.sh /app/
 
