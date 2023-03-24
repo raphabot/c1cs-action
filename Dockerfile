@@ -14,4 +14,6 @@ COPY --from=build /bin/bash /bin
 
 COPY pull-scan.sh /app/
 
+ENV PATH="/bin"
+
 ENTRYPOINT [ "bash", "/app/pull-scan.sh" ]
