@@ -1,8 +1,8 @@
-# Trend Micro Cloud One Container Security Scan Action
+# Trend Cloud One Container Security Scan Action
 
 ![TM Logo](tm-logo.jpg)
 
-## Scan your containers with [Trend Micro Cloud One Container Security](https://www.trendmicro.com/en_us/business/products/hybrid-cloud/cloud-one-container-image-security.html)
+## Scan your containers with [Trend Cloud One Container Security](https://www.trendmicro.com/en_us/business/products/hybrid-cloud/cloud-one-container-image-security.html)
 
 This tool is meant to be used as a [GitHub Action](https://github.com/features/actions).
 
@@ -18,7 +18,7 @@ Add an Action in your `.github/workflow` yml file to scan your image with Trend 
 
 ```yml
 - name: Cloud One Container Security Scan Action
-  uses: felipecosta09/cloud-one-container-security-scan-action@version*
+  uses: felipecosta09/c1cs@version*
    with:
       # Mandatory
       CLOUD_ONE_API_KEY: ${{ secrets.API_KEY }}
