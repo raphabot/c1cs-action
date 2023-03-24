@@ -61,4 +61,3 @@ runs:
     MAX_NEGLIGIBLE: ${{ inputs.MAX_NEGLIGIBLE }}
     MAX_UNKNOWN: ${{ inputs.MAX_UNKNOWN }}
     SCAN_RESULT_ARTIFACT: ${{ inputs.SCAN_RESULT_ARTIFACT }}
-    
