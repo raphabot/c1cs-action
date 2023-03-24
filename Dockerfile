@@ -1,9 +1,5 @@
 FROM alpine as build
 
-COPY pull-scan.sh /app/
-
-WORKDIR /app
-
 RUN apk add bash curl sudo jq -q
 
 RUN curl -s -L https://gist.githubusercontent.com/raphabot/bcdf92008756a4bc8e004b304a489692/raw/cbf29b11a4428a6d4314c39e5085719ab6d0a1b1/c1cs-install.sh | bash
@@ -14,5 +10,8 @@ FROM gcr.io/distroless/static-debian11
 
 COPY --from=build /usr/bin/crane /
 COPY --from=build /usr/local/bin/c1cs /
+COPY --from=build /usr/bin/bash /
+
+COPY pull-scan.sh /app/
 
 ENTRYPOINT [ "bash", "/app/pull-scan.sh" ]
