@@ -28,7 +28,7 @@ Add an Action in your `.github/workflow` yml file to scan your image with Trend 
 
       # Optional
       # For each threshold below, select the maximum number of vulnerabilities that are acceptable.
-      TOTAL: 0
+      MAX_TOTAL: 0
       MAX_CRITICAL: 0
       MAX_HIGH: 0
       MAX_MEDIUM: 0
