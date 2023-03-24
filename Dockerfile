@@ -12,7 +12,7 @@ COPY --from=build /usr/bin/crane /bin/crane
 COPY --from=build /usr/local/bin/c1cs /bin/c1cs
 COPY --from=build /bin/sh /bin/sh
 
-COPY pull-scan.sh /app/pull-scan.sh
+COPY --chmod=755 pull-scan.sh /app/pull-scan.sh
 
 ENV PATH="/bin"
 
