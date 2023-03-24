@@ -10,10 +10,10 @@ FROM gcr.io/distroless/static-debian11
 
 COPY --from=build /usr/bin/crane /bin/crane
 COPY --from=build /usr/local/bin/c1cs /bin/c1cs
-COPY --from=build /bin/bash /bin/bash
+COPY --from=build /bin/sh /bin/sh
 
 COPY pull-scan.sh /app/
 
 ENV PATH="/bin"
 
-ENTRYPOINT [ "bash", "/app/pull-scan.sh" ]
+ENTRYPOINT [ "sh", "/app/pull-scan.sh" ]
