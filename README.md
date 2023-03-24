@@ -10,6 +10,7 @@ This tool is meant to be used as a [GitHub Action](https://github.com/features/a
 
 * Have an [Cloud One Account](https://cloudone.trendmicro.com). [Sign up for free trial now](https://cloudone.trendmicro.com/trial) if it's not already the case!
 * [A Cloud One API Key](https://cloudone.trendmicro.com/docs/identity-and-account-management/c1-api-key/#new-api-key) with `Full Access` role
+* A [Cloud One Region](https://cloudone.trendmicro.com/docs/identity-and-account-management/c1-regions/) of choice
 * A container image to be scan.
 
 ## Usage
@@ -22,10 +23,11 @@ Add an Action in your `.github/workflow` yml file to scan your image with Trend 
    with:
       # Mandatory
       CLOUD_ONE_API_KEY: ${{ secrets.API_KEY }}
-      IMAGE: alpine
+      IMAGE: alpine # The image need to be public or the pipeline need to have access to the private image of choice.
       REGION: us-1
 
       # Optional
+      # For each threshold below, select the maximum number of vulnerabilities that are acceptable.
       TOTAL: 0
       MAX_CRITICAL: 0
       MAX_HIGH: 0
@@ -33,5 +35,38 @@ Add an Action in your `.github/workflow` yml file to scan your image with Trend 
       MAX_LOW: 0
       MAX_NEGLIGIBLE: 0
       MAX_UNKNOWN: 0
-      SCAN_RESULT_ARTIFACT: result.json   
+      SCAN_RESULT_ARTIFACT: result.json # Save as an artifact in GitHub to be able to keep the result of the scan.
 ```
+
+## Artifacts (Optional)
+
+Artifacts allow you to share data between jobs in a workflow and store data once that workflow has completed, in this case saving the scan as an artifact allow you to have proof on what happened on past scans. In the example below, you can add an extra action after the scan to keep the result the scan as an artifact for 30 days:
+
+```yaml
+  - name: 'Upload Artifact'
+    uses: actions/upload-artifact@v3
+    with:
+      name: my-artifact
+      path: result.json
+      retention-days: 30
+```
+
+**Note**: By default, GitHub stores build logs and artifacts for 90 days, and this retention period can be customized. For more information, check the [GitHub Documentation](https://docs.github.com/en/actions/using-workflows/storing-workflow-data-as-artifacts).
+
+## Contributing
+
+If you encounter a bug, think of a useful feature, or find something confusing
+in the docs, please
+[create a new issue](https://github.com/felipecosta09/c1cs/issues/new)!
+
+We :heart: pull requests. If you'd like to fix a bug, contribute to a feature or
+just correct a typo, please feel free to do so.
+
+If you're thinking of adding a new feature, consider opening an issue first to
+discuss it to ensure it aligns to the direction of the project (and potentially
+save yourself some time!).
+
+## Support
+
+Official support from Trend Micro is not available. Individual contributors may
+be Trend Micro employees, but are not official support.
