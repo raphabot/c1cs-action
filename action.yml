@@ -5,8 +5,8 @@ inputs:
     description: "Cloud One API Key"
     required: true
   IMAGE:
-    description: "Image to scan"
-    required: true
+    description: "Image URI to scan. Not required if you are doing pre-registry scanning. See LOCAL_IMAGE_TARBALL."
+    required: false
   REGION:
     description: "Cloud One Region"
     required: true
