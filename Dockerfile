@@ -2,8 +2,6 @@ FROM alpine
 
 COPY pull-scan.sh /app/
 
-WORKDIR /app
-
 RUN apk add bash curl sudo jq -q
 
 RUN curl -s -L https://gist.githubusercontent.com/raphabot/bcdf92008756a4bc8e004b304a489692/raw/cbf29b11a4428a6d4314c39e5085719ab6d0a1b1/c1cs-install.sh | bash
