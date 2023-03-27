@@ -1,9 +1,20 @@
 #!/bin/bash
+
+# Sets default value for IMAGE_TARBALL
 IMAGE_TARBALL="image.tar"
 
-# Pulls the image
-echo "Pulling Image..."
-crane pull "$IMAGE" "$IMAGE_TARBALL"
+# Checks if a locally available image tarball was provided by verifying if LOCAL_IMAGE_TARBALL is empty
+# If it is, it will pull the image from the registry
+# If it isn't, it will use the local image tarball
+if [ -z "$LOCAL_IMAGE_TARBALL" ]; then
+  # Pulls the image
+  echo "Pulling Image ""$IMAGE""..."
+  crane pull "$IMAGE" "$IMAGE_TARBALL"
+else
+  # Uses the local image tarball
+  IMAGE_TARBALL="$LOCAL_IMAGE_TARBALL"
+  echo "Using local image tarball: $IMAGE_TARBALL"
+fi
 
 # Scans the image
 c1cs scan -e "artifactscan.$REGION.cloudone.trendmicro.com" docker-archive:"$IMAGE_TARBALL" > "$SCAN_RESULT_ARTIFACT"
